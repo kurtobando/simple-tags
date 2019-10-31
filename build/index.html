@@ -44,13 +44,13 @@
 		</div>
 		
 		<div class="uk-margin-large-top">
-			<p>From here, add the ID of  your desired element, preferable a <code>div</code></p>
+			<p>From here, add the ID of  your desired element, preferable a <code>div</code>, with an array of tags as a second argument.</p>
 		</div>
 		<div>
 			<pre style="tab-size: 1; white-space: pre-line;">
 				&lt;div id="container" class="simple-tags"&gt;&lt;/div&gt;
 				&lt;script&gt;
-				&nbsp;&nbsp;&nbsp;const tags = new Tags('#container')
+				&nbsp;&nbsp;&nbsp;const tags = new Tags('#container', ["Article", "Blog", "Page", "Post", "Category", "Updates"])
 				&lt;/script&gt;
 			</pre>
 			<p><span class="uk-label">Note</span> include <code>.simple-tags</code> for the default style.</p>

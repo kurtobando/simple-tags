@@ -11,12 +11,12 @@ Note! Do not forget to include these files below:
 <link href="css/style.css" rel="stylesheet">
 <script src="js/script-min.js"></script>
 ```
-From here, add the ID of your desired element, preferable a div
+From here, add the ID of your desired element, preferable a div, with an array of tags as a second argument.
 
 ```bash
 <div id="container" class="simple-tags"></div>
 <script>
-   const tags = new Tags('#container')
+   const tags = new Tags('#container', ["Article", "Blog", "Page", "Post", "Category", "Updates"])
 </script>
 ```
 Note! include .simple-tags for the default style.
