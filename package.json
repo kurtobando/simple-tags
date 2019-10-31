@@ -1,0 +1,23 @@
+{
+  "name": "tags",
+  "version": "1.0.0",
+  "description": "A lightweight JS plugin for tags",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp watch",
+	"build": "gulp"
+  },
+  "author": "Kurt Obando",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "autoprefixer": "^9.7.0",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-minify": "^3.1.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-postcss": "^8.0.0",
+    "gulp-sass": "^4.0.2"
+  }
+}

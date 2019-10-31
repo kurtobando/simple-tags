@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<meta name="author" content="Kurt Obando">
+	<meta name="description" content="A lightweight JS plugin for tags without JQuery library">
+	<meta name="keywords" content="JS Tags plugin">
+	<title>A lightweight JS plugin for tags</title>
+	
+	<!-- UIkit CSS -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css" />
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body> 
+	
+	
+	
+	<div class="uk-background-primary uk-light uk-padding uk-panel">
+		<div class="uk-height-small"></div>
+		<div class="uk-container uk-container-small">
+           	<h1>Simple Tags</h1>
+			<p>A lightweight JS plugin for tags without JQuery library</p>
+			
+			<div>
+				<a class="uk-button uk-button-primary" href="https://github.com/kurtobando/simple-tags" target="_blank">Download</a>
+				<a class="uk-button uk-button-default" href="https://github.com/kurtobando/simple-tags" target="_blank" uk-icon="github"></a>
+			</div>
+        </div>
+	</div>
+	
+	
+	
+	<div class="uk-container uk-container-small uk-padding">
+		<div class="uk-margin-top">
+			<h3>Getting Started</h3>
+			<p><span class="uk-label">Note</span> Do not forget to include these files below:</p>
+		</div>
+		<div>
+			<pre style="tab-size: 1; white-space: pre-line;">
+				&lt;link href="css/style.css" rel="stylesheet"&gt;
+				&lt;script src="js/script-min.js"&gt;&lt;&#47;script&gt;
+			</pre>
+		</div>
+		
+		<div class="uk-margin-large-top">
+			<p>From here, add the ID of  your desired element, preferable a <code>div</code></p>
+		</div>
+		<div>
+			<pre style="tab-size: 1; white-space: pre-line;">
+				&lt;div id="container" class="simple-tags"&gt;&lt;/div&gt;
+				&lt;script&gt;
+				&nbsp;&nbsp;&nbsp;const tags = new Tags('#container')
+				&lt;/script&gt;
+			</pre>
+			<p><span class="uk-label">Note</span> include <code>.simple-tags</code> for the default style.</p>
+		</div>
+		
+		<div class="uk-margin-top">
+			<h3>Result</h3>
+			<div id="container" class="simple-tags" style="margin: 1em 0em;"></div>
+		</div>
+		
+		<div class="uk-height-medium"></div>
+	</div>
+
+	
+	
+	<script src="js/script-min.js"></script>
+	<script>
+		new Tags('#container')
+	</script>
+	
+	<!-- UIkit JS -->
+	<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit-icons.min.js"></script>
+</body>
+</html>
