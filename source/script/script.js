@@ -1,6 +1,6 @@
-function Tags( element ) {
+function Tags( element, listOfTags ) {
 	
-	let arrayOfList 	= ['Article', 'Blog', 'Page', 'Post']
+	let arrayOfList 	= listOfTags
 	let DOMParent 		= document.querySelector( element )
 	let DOMList
 	let DOMInput
@@ -24,14 +24,14 @@ function Tags( element ) {
 		// render each <li> to <ul>
 		arrayOfList.forEach( function( currentValue, index ) {
 			let li 				= document.createElement('li')
-				 li.innerHTML 	= `${currentValue} <a href='#'>&times;</a>`
-				 li.querySelector('a').addEventListener( 'click', function() {
-					 
-					 if( confirm('Continue to remove tag?') ){
+				li.innerHTML 	= `${currentValue} <a>&times;</a>`
+				li.querySelector('a').addEventListener( 'click', function() {
+					if( confirm('Continue to remove tag?') ){
 						onDelete( index )	 
-					 }
-					 return false;
-				 })
+					}
+
+					return false;
+				})
 			
 			DOMList.appendChild( li )
 		})

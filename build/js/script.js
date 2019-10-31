@@ -1,5 +1,5 @@
-function Tags(element) {
-  var arrayOfList = ['Article', 'Blog', 'Page', 'Post'];
+function Tags(element, listOfTags) {
+  var arrayOfList = listOfTags;
   var DOMParent = document.querySelector(element);
   var DOMList;
   var DOMInput;
@@ -20,7 +20,7 @@ function Tags(element) {
 
     arrayOfList.forEach(function (currentValue, index) {
       var li = document.createElement('li');
-      li.innerHTML = "".concat(currentValue, " <a href='#'>&times;</a>");
+      li.innerHTML = "".concat(currentValue, " <a>&times;</a>");
       li.querySelector('a').addEventListener('click', function () {
         if (confirm('Continue to remove tag?')) {
           onDelete(index);
