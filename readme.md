@@ -1,36 +1,52 @@
 # Simple Tags
 
 A lightweight JS plugin for tags without JQuery library
-
+![](http://demo.kurtobando.com/screencast/simple-tags.gif)
 ## Getting Started
 
 Note! Do not forget to include these files below:
 
 
-```bash
+```html
 <link href="css/style.css" rel="stylesheet">
 <script src="js/script-min.js"></script>
 ```
-From here, add the ID of your desired element, preferable a div, with an array of tags as a second argument.
+From here, add the element ID of your desired tag, preferable a **div**, with an array of tags as a second argument. For example:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Simple Tags</title>
+		<link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+		<div id="container" class="simple-tags"></div>
 
-```bash
-<div id="container" class="simple-tags"></div>
-<script>
-   const tags = new Tags('#container', ["Article", "Blog", "Page", "Post", "Category", "Updates"])
-</script>
+		<script src="js/script-min.js"></script>
+		<script>
+				new Tags( 
+						'#container', 
+						["Article", "Blog", "Page", "Post", "Category", "Updates"] 
+				)
+		</script>
+</body>
+</html>
 ```
-Note! include .simple-tags for the default style.
+Note! include `.simple-tags` for the default style.
+## Demo
+Visit [here](https://demo.kurtobando.com/play-with-js/simple-tags)
 
 ## Installation
+
 ```bash
 npm install 
 npm run start
 npm run build
 ```
-## Demo
-Visit [here](https://demo.kurtobando.com/play-with-js/simple-tags)
 ## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. 
 
 Please make sure to update tests as appropriate.
 
