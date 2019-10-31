@@ -16,21 +16,21 @@ From here, add the element ID of your desired tag, preferable a **div**, with an
 <!DOCTYPE html>
 <html>
 <head>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<title>Simple Tags</title>
-		<link href="css/style.css" rel="stylesheet">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Simple Tags</title>
+	<link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-		<div id="container" class="simple-tags"></div>
+	<div id="container" class="simple-tags"></div>
 
-		<script src="js/script-min.js"></script>
-		<script>
-				new Tags( 
-						'#container', 
-						["Article", "Blog", "Page", "Post", "Category", "Updates"] 
-				)
-		</script>
+	<script src="js/script-min.js"></script>
+	<script>
+		new Tags( 
+			'#container', 
+			["Article", "Blog", "Page", "Post", "Category", "Updates"] 
+		)
+	</script>
 </body>
 </html>
 ```
