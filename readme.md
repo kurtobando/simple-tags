@@ -2,50 +2,36 @@
 
 A lightweight JS plugin for tags without JQuery library
 ![](http://demo.kurtobando.com/screencast/simple-tags.gif)
-## Getting Started
 
-Note! Do not forget to include these files below:
-
-
+### Getting Started
+Simply add the `data-simple-tags` with your desired values, for example `Article, Blog, Page, Post, Category, Updates` then, include `.simple-tags` for the default style.
 ```html
-<link href="css/style.css" rel="stylesheet">
-<script src="js/script-min.js"></script>
+<div
+   class="simple-tags"
+   data-simple-tags="Article, Blog, Page, Post, Category, Updates">
+</div>
 ```
-From here, add the element ID of your desired tag, preferable a **div**, with an array of tags as a second argument. For example:
+
+NOTE!  Ensure these files are included on your project.
 ```html
-<!DOCTYPE html>
-<html>
-<head>
-   <title>Simple Tags</title>
-   <link href="css/style.css" rel="stylesheet">
-</head>
-<body>
-   <div id="container" class="simple-tags"></div>
-   <script src="js/script-min.js"></script>
-   <script>
-      new Tags( 
-         '#container', 
-         ["Article", "Blog", "Page", "Post", "Category", "Updates"] 
-      )
-   </script>
-</body>
-</html>
+<link href="build/css/style.css" rel="stylesheet">
+<script src="build/js/script-min.js"></script>
 ```
-Note! include `.simple-tags` for the default style.
-## Demo
+In addition to this, the `data-simple-tags` will update whenever a new tag or deleted tag has been made. 
+
+### Demo
 Visit [here](https://demo.kurtobando.com/play-with-js/simple-tags)
 
-## Installation
-
+### Installation
 ```bash
 npm install 
 npm run start
 npm run build
 ```
-## Contributing
+### Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. 
 
 Please make sure to update tests as appropriate.
 
-## License
+### License
 [MIT](https://choosealicense.com/licenses/mit/)
