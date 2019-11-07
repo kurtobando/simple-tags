@@ -1,9 +1,9 @@
-function Tags( element, listOfTags ) {
-	
-	let arrayOfList 	= listOfTags
-	let DOMParent 		= element
+function Tags( element ) {
+	let DOMParent = element
 	let DOMList
 	let DOMInput
+	let dataAttribute
+	let arrayOfList
 	
 	function DOMCreate() {
 		let ul 		= document.createElement('ul')
@@ -13,8 +13,10 @@ function Tags( element, listOfTags ) {
 		DOMParent.appendChild( ul )
 		DOMParent.appendChild( input )
 		
+		// first child is <ul>
 		DOMList 	= DOMParent.firstElementChild
-		DOMInput = DOMParent.lastElementChild
+		// last child is <input>
+		DOMInput	= DOMParent.lastElementChild
 	}
 	
 	function DOMRender() {
@@ -64,27 +66,38 @@ function Tags( element, listOfTags ) {
 			return currentValue
 		})
 		
+		setAttribute()
 		DOMRender()
 	}
 	
+	function getAttribute() {
+		dataAttribute = DOMParent.getAttribute('data-simple-tags')
+		dataAttribute = dataAttribute.split(',')
+		
+		// store array of data attribute in arrayOfList
+		arrayOfList = dataAttribute.map(( currentValue ) => {
+			return currentValue.trim()
+		})
+	}
+	
+	function setAttribute() {
+		DOMParent.setAttribute('data-simple-tags', arrayOfList.toString());
+	}
+	
+	getAttribute()
 	DOMCreate()
 	DOMRender()
 	onKeyUp()
 }
 
+
+
+// run immediately
 (function(){
 	let DOMSimpleTags = document.querySelectorAll('.simple-tags')
-	 	DOMSimpleTags = Array.from( DOMSimpleTags )
-	
+		DOMSimpleTags = Array.from( DOMSimpleTags )
 		DOMSimpleTags.forEach( function( currentValue, index ) {
-			// get attribute data
-			let dataAttribute = currentValue.getAttribute('data-simple-tags')
-
-			// ensure only !null attribte will be rendered
-			if ( dataAttribute )
-				// from string to array 
-				dataAttribute = dataAttribute.split(',')
-				// create Tags
-				new Tags( currentValue , dataAttribute )
+			// create Tags
+			new Tags( currentValue )
 		})
 })()

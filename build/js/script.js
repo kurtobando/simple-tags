@@ -1,16 +1,19 @@
-function Tags(element, listOfTags) {
-  var arrayOfList = listOfTags;
+function Tags(element) {
   var DOMParent = element;
   var DOMList;
   var DOMInput;
+  var dataAttribute;
+  var arrayOfList;
 
   function DOMCreate() {
     var ul = document.createElement('ul');
     var li = document.createElement('li');
     var input = document.createElement('input');
     DOMParent.appendChild(ul);
-    DOMParent.appendChild(input);
-    DOMList = DOMParent.firstElementChild;
+    DOMParent.appendChild(input); // first child is <ul>
+
+    DOMList = DOMParent.firstElementChild; // last child is <input>
+
     DOMInput = DOMParent.lastElementChild;
   }
 
@@ -59,24 +62,35 @@ function Tags(element, listOfTags) {
 
       return currentValue;
     });
+    setAttribute();
     DOMRender();
   }
 
+  function getAttribute() {
+    dataAttribute = DOMParent.getAttribute('data-simple-tags');
+    dataAttribute = dataAttribute.split(','); // store array of data attribute in arrayOfList
+
+    arrayOfList = dataAttribute.map(function (currentValue) {
+      return currentValue.trim();
+    });
+  }
+
+  function setAttribute() {
+    DOMParent.setAttribute('data-simple-tags', arrayOfList.toString());
+  }
+
+  getAttribute();
   DOMCreate();
   DOMRender();
   onKeyUp();
-}
+} // run immediately
+
 
 (function () {
   var DOMSimpleTags = document.querySelectorAll('.simple-tags');
   DOMSimpleTags = Array.from(DOMSimpleTags);
   DOMSimpleTags.forEach(function (currentValue, index) {
-    // get attribute data
-    var dataAttribute = currentValue.getAttribute('data-simple-tags'); // ensure only !null attribte will be rendered
-
-    if (dataAttribute) // from string to array 
-      dataAttribute = dataAttribute.split(','); // create Tags
-
-    new Tags(currentValue, dataAttribute);
+    // create Tags
+    new Tags(currentValue);
   });
 })();
