@@ -1,6 +1,6 @@
 function Tags(element, listOfTags) {
   var arrayOfList = listOfTags;
-  var DOMParent = document.querySelector(element);
+  var DOMParent = element;
   var DOMList;
   var DOMInput;
 
@@ -66,3 +66,17 @@ function Tags(element, listOfTags) {
   DOMRender();
   onKeyUp();
 }
+
+(function () {
+  var DOMSimpleTags = document.querySelectorAll('.simple-tags');
+  DOMSimpleTags = Array.from(DOMSimpleTags);
+  DOMSimpleTags.forEach(function (currentValue, index) {
+    // get attribute data
+    var dataAttribute = currentValue.getAttribute('data-simple-tags'); // ensure only !null attribte will be rendered
+
+    if (dataAttribute) // from string to array 
+      dataAttribute = dataAttribute.split(','); // create Tags
+
+    new Tags(currentValue, dataAttribute);
+  });
+})();

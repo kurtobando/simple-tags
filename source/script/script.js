@@ -1,7 +1,7 @@
 function Tags( element, listOfTags ) {
 	
 	let arrayOfList 	= listOfTags
-	let DOMParent 		= document.querySelector( element )
+	let DOMParent 		= element
 	let DOMList
 	let DOMInput
 	
@@ -71,3 +71,20 @@ function Tags( element, listOfTags ) {
 	DOMRender()
 	onKeyUp()
 }
+
+(function(){
+	let DOMSimpleTags = document.querySelectorAll('.simple-tags')
+	 	DOMSimpleTags = Array.from( DOMSimpleTags )
+	
+		DOMSimpleTags.forEach( function( currentValue, index ) {
+			// get attribute data
+			let dataAttribute = currentValue.getAttribute('data-simple-tags')
+
+			// ensure only !null attribte will be rendered
+			if ( dataAttribute )
+				// from string to array 
+				dataAttribute = dataAttribute.split(',')
+				// create Tags
+				new Tags( currentValue , dataAttribute )
+		})
+})()
