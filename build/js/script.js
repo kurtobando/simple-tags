@@ -32,6 +32,7 @@ function Tags(element) {
         return false;
       });
       DOMList.appendChild(li);
+      setAttribute();
     });
   }
 
@@ -62,7 +63,6 @@ function Tags(element) {
 
       return currentValue;
     });
-    setAttribute();
     DOMRender();
   }
 

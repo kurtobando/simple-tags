@@ -24,7 +24,7 @@ function Tags( element ) {
 		DOMList.innerHTML = ''
 		
 		// render each <li> to <ul>
-		arrayOfList.forEach( function( currentValue, index ) {
+		arrayOfList.forEach(( currentValue, index ) => {
 			let li 				= document.createElement('li')
 				li.innerHTML 	= `${currentValue} <a>&times;</a>`
 				li.querySelector('a').addEventListener( 'click', function() {
@@ -36,7 +36,10 @@ function Tags( element ) {
 				})
 			
 			DOMList.appendChild( li )
+			setAttribute()
 		})
+		
+		
 	}
 	
 	function onKeyUp() {
@@ -66,7 +69,6 @@ function Tags( element ) {
 			return currentValue
 		})
 		
-		setAttribute()
 		DOMRender()
 	}
 	
