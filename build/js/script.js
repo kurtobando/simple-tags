@@ -1,96 +1,105 @@
-function Tags(element) {
-  var DOMParent = element;
-  var DOMList;
-  var DOMInput;
-  var dataAttribute;
-  var arrayOfList;
-
-  function DOMCreate() {
-    var ul = document.createElement('ul');
-    var li = document.createElement('li');
-    var input = document.createElement('input');
-    DOMParent.appendChild(ul);
-    DOMParent.appendChild(input); // first child is <ul>
-
-    DOMList = DOMParent.firstElementChild; // last child is <input>
-
-    DOMInput = DOMParent.lastElementChild;
-  }
-
-  function DOMRender() {
-    // clear the entire <li> inside <ul> 
-    DOMList.innerHTML = ''; // render each <li> to <ul>
-
-    arrayOfList.forEach(function (currentValue, index) {
-      var li = document.createElement('li');
-      li.innerHTML = "".concat(currentValue, " <a>&times;</a>");
-      li.querySelector('a').addEventListener('click', function () {
-        if (confirm('Continue to remove tag?')) {
-          onDelete(index);
+    class SimpleTags {
+        apply(){
+            let DOMSimpleTags = document.querySelectorAll('.simple-tags');
+            DOMSimpleTags = Array.from(DOMSimpleTags);
+            DOMSimpleTags.forEach((currentValue) => {
+                // create Tags
+                this.init(currentValue);
+            });
+        }
+        init(element) {
+            this.DOMParent = element;
+            this.DOMList;
+            this.DOMInput;
+            this.dataAttribute;
+            this.arrayOfList;
+            this.getAttribute();
+            this.DOMCreate();
+            this.DOMRender();
+            this.onKeyUp();
         }
 
-        return false;
-      });
-      DOMList.appendChild(li);
-      setAttribute();
-    });
-  }
+        DOMCreate() {
+            let ul = document.createElement('ul');
+            let input = document.createElement('input');
+            this.DOMParent.appendChild(ul);
+            this.DOMParent.appendChild(input);
+        
+            this.DOMList = this.DOMParent.firstElementChild;
+        
+            this.DOMInput = this.DOMParent.lastElementChild;
+          }
 
-  function onKeyUp() {
-    DOMInput.addEventListener('keyup', function (event) {
-      var text = this.value.trim(); // check if ',' or 'enter' key was press
+          DOMRender() {
+            // clear the entire <li> inside <ul> 
+            this.DOMList.innerHTML = ''; // render each <li> to <ul>
+            this.arrayOfList.forEach((currentValue, index) => {
+                if(currentValue) {
+                  let li = document.createElement('li');
+                  li.innerHTML = "".concat(currentValue, " <a style=cursor:pointer>&times;</a>");
+                  li.querySelector('a').addEventListener('click',  () => {
+                      this.onDelete(index);
+            
+                    return false;
+                  });
+                  this.DOMList.appendChild(li);
+                //   this.setAttribute();
+                }
+            });
+            this.setAttribute();
+        }
 
-      if (text.includes(',') || event.keyCode == 13) {
-        // check if empty text when ',' is remove
-        if (text.replace(',', '') != '') {
-          // push to array and remove ','
-          arrayOfList.push(text.replace(',', ''));
-        } // clear input
+        onKeyUp() {
+            let _this = this;
+            this.DOMInput.addEventListener('keyup', function (event) {
+                
+                if(event.keyCode == 8 && !this.value && _this.DOMList.children.length) {
+                    let lastText = _this.DOMList.lastElementChild.firstChild.data.trim();
+                    _this.DOMList.lastElementChild.remove()
+                    _this.arrayOfList.pop();
+                    _this.DOMInput.value = lastText;
+                }
+                let text = this.value.trim(); // check if ',' or 'enter' 'space' key was press
+        
+                if (text.includes(',') || event.keyCode == 13 || event.keyCode == 32) {
+                    // check if empty text when ',' is remove
+                    if (text.replace(',', '') != '') {
+                        // push to array and remove ','
+                        _this.arrayOfList.push(text.replace(',', ''));
+                    } // clear input
+        
+        
+                    this.value = '';
+                }
+        
+                _this.DOMRender();
+            });
+        }
 
+        onDelete(id) {
+            this.arrayOfList = this.arrayOfList.filter((currentValue, index) => {
+                    if (index == id) {
+                        return false;
+                    }
 
-        this.value = '';
-      }
+                    return currentValue;
+                });
+            this.DOMRender();
+          }
 
-      DOMRender();
-    });
-  }
-
-  function onDelete(id) {
-    arrayOfList = arrayOfList.filter(function (currentValue, index) {
-      if (index == id) {
-        return false;
-      }
-
-      return currentValue;
-    });
-    DOMRender();
-  }
-
-  function getAttribute() {
-    dataAttribute = DOMParent.getAttribute('data-simple-tags');
-    dataAttribute = dataAttribute.split(','); // store array of data attribute in arrayOfList
-
-    arrayOfList = dataAttribute.map(function (currentValue) {
-      return currentValue.trim();
-    });
-  }
-
-  function setAttribute() {
-    DOMParent.setAttribute('data-simple-tags', arrayOfList.toString());
-  }
-
-  getAttribute();
-  DOMCreate();
-  DOMRender();
-  onKeyUp();
-} // run immediately
-
-
-(function () {
-  var DOMSimpleTags = document.querySelectorAll('.simple-tags');
-  DOMSimpleTags = Array.from(DOMSimpleTags);
-  DOMSimpleTags.forEach(function (currentValue, index) {
-    // create Tags
-    new Tags(currentValue);
-  });
-})();
+        getAttribute() {
+            this.dataAttribute = this.DOMParent.getAttribute('data-simple-tags');
+            this.dataAttribute = this.dataAttribute ? this.dataAttribute.split(',') : []; // store array of data attribute in arrayOfList
+        
+            this.arrayOfList = this.dataAttribute.map((currentValue) => {
+                return currentValue.trim();
+            });
+        }
+        
+        setAttribute() {
+            this.DOMParent.setAttribute('data-simple-tags', this.arrayOfList.toString());
+        }
+        get tagList() {
+            return this.arrayOfList;
+        }
+    }
