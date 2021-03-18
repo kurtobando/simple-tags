@@ -27,11 +27,7 @@ function Tags(element) {
             let li = document.createElement("li")
             li.innerHTML = `${currentValue} <a>&times;</a>`
             li.querySelector("a").addEventListener("click", function () {
-                if (confirm("Continue to remove tag?")) {
-                    onDelete(index)
-                }
-
-                return false
+                onDelete(index)
             })
 
             DOMList.appendChild(li)
