@@ -31,8 +31,9 @@ function Tags(element) {
             })
 
             DOMList.appendChild(li)
-            setAttribute()
         })
+
+        setAttribute()
     }
 
     function onKeyUp() {
