@@ -1,25 +1,31 @@
 {
-  "name": "tags",
-  "version": "1.0.0",
-  "description": "A lightweight JS plugin for tags",
-  "main": "index.js",
-  "scripts": {
-    "start": "gulp watch",
-    "build": "gulp"
-  },
-  "author": "Kurt Obando",
-  "license": "ISC",
-  "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/preset-env": "^7.6.3",
-    "autoprefixer": "^10.2.5",
-    "eslint": "^7.22.0",
-    "gulp": "^4.0.2",
-    "gulp-babel": "^8.0.0",
-    "gulp-minify": "^3.1.0",
-    "gulp-plumber": "^1.2.1",
-    "gulp-postcss": "^9.0.0",
-    "gulp-sass": "^4.0.2",
-    "prettier": "^2.2.1"
-  }
+    "name": "simple-tags",
+    "version": "1.0.0",
+    "description": "A lightweight JS plugin for tags",
+    "main": "index.js",
+    "scripts": {
+        "dev": "webpack serve",
+        "build": "webpack build"
+    },
+    "author": "Kurt Obando",
+    "license": "MIT",
+    "devDependencies": {
+        "autoprefixer": "^10.2.6",
+        "css-loader": "^5.2.6",
+        "eslint": "^7.22.0",
+        "mini-css-extract-plugin": "^1.6.0",
+        "path": "^0.12.7",
+        "postcss-loader": "^6.1.0",
+        "prettier": "^2.2.1",
+        "sass-loader": "^12.1.0",
+        "webpack": "^5.40.0",
+        "webpack-bundle-analyzer": "^4.4.2",
+        "webpack-cli": "^4.7.2",
+        "webpack-dev-server": "^3.11.2"
+    },
+    "browserslist": [
+        "defaults",
+        "last 20 version",
+        "dead"
+    ]
 }
