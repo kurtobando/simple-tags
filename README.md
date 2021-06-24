@@ -1,5 +1,7 @@
 # Simple Tags
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f69a391e-2a70-497c-806b-ad60340cfd00/deploy-status)](https://app.netlify.com/sites/naughty-goldberg-3160c7/deploys)
+
 A lightweight JS plugin for tags without JQuery library
 ![](http://demo.kurtobando.com/screencast/simple-tags.gif)
 
