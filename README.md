@@ -1,7 +1,9 @@
 # Simple Tags
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/f69a391e-2a70-497c-806b-ad60340cfd00/deploy-status)](https://app.netlify.com/sites/naughty-goldberg-3160c7/deploys)
+
 A lightweight JS plugin for tags without JQuery library
-![](http://demo.kurtobando.com/screencast/simple-tags.gif)
+![](https://simple-tags.kurtobando.com/simple-tags.gif)
 
 ## Getting Started
 
@@ -22,13 +24,14 @@ In addition to this, the `data-simple-tags` will update whenever a new tag or de
 
 ## Demo
 
-Visit [here](https://demo.kurtobando.com/play-with-js/simple-tags)
+Visit [simple-tags.kurtobando.com](https://simple-tags.kurtobando.com)
 
-## Installation
+## Script
 
 ```bash
-npm install
-npm run build
+yarn install
+yarn dev
+yarn build
 ```
 
 ## Contributing
