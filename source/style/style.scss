@@ -1,14 +1,23 @@
-$primary-color: #1e87f0;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;700&display=swap');
 
+/* simple tags scss variables */ 
+$primary-color: #1e87f0;
+$primary-font: 'Poppins', sans-serif;
+$primary-background-color: #fff;
+$border-radius: 3px;
+
+/* simple tags styles */ 
 .simple-tags {
+    font-family: $primary-font;
+    background-color: $primary-background-color;
     border: 1px solid $primary-color;
+    border-radius: $border-radius;
     box-sizing: border-box;
     margin: 1em;
     padding: 0em 0.5em;
     display: flex;
     flex-wrap: wrap;
     font-size: 14px;
-    border-radius: 5px;
 
     & > ul {
         list-style: none;
@@ -20,9 +29,9 @@ $primary-color: #1e87f0;
     ul li {
         margin: 0.5em 0.2em;
         padding: 0.5em;
-        color: #fff;
+        color: $primary-background-color;
         background-color: $primary-color;
-        border-radius: 5px;
+        border-radius: $border-radius;
     }
     ul li a {
         margin: 0.5em 0.2em;
@@ -39,4 +48,10 @@ $primary-color: #1e87f0;
         font-family: inherit;
         color: inherit;
     }
+}
+
+/* resets for demo page */ 
+body {
+    font-family: $primary-font;
+    background-color: #f9f9f9;
 }
