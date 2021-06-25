@@ -20,6 +20,22 @@ NOTE! Ensure these files are included on your project.
 <script src="build/simple-tags.min.js"></script>
 ```
 
+At this point, let us target the desired element and pass to `new Tags()`. In our example above, I will add a new id attribute, named `simple-tag`.
+
+```html
+<div
+     id="simple-tag"
+     class="simple-tags"
+     data-simple-tags="Article, Blog, Page, Post, Category, Updates" >
+</div>
+```
+```html
+<script src="build/simple-tags.min.js"></script>
+<script>
+      new Tags(document.getElementById("simple-tag")
+</script>
+```
+
 In addition to this, the `data-simple-tags` will update whenever a new tag or deleted tag has been made.
 
 ## Demo
