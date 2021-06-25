@@ -10,12 +10,9 @@
 	
 	<!-- UIkit CSS -->
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/css/uikit.min.css" />
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="./simple-tags.min.css">
 </head>
 <body> 
-	
-	
-	
 	<div class="uk-background-primary uk-light uk-padding uk-panel">
 		<div class="uk-height-small"></div>
 		<div class="uk-container uk-container-small">
@@ -34,7 +31,7 @@
 	<div class="uk-container uk-container-small uk-padding">
 		<div class="uk-margin-top">
 			<h3>Getting Started</h3>
-			<p>Simply add the <code>data-simple-tags</code> with your desired values, for example  <code>Article, Blog, Page, Post, Category, Updates</code> then, include <code>.simple-tags</code> for the default style.</p>
+			<p>Start by adding the <code>data-simple-tags</code> data attribute with your desired values, for example  <code>Article, Blog, Page, Post, Category, Updates</code> then, include <code>.simple-tags</code> for the default style.</p>
 		</div>
 		<div>
 			<pre style="tab-size: 1; white-space: pre-line;">
@@ -49,38 +46,44 @@
 		<div>
 			<p><span class="uk-label">Note</span> Ensure these files are included on your project.</p>
 			<pre style="tab-size: 1; white-space: pre-line;">
-				&lt;link href="build/css/style.css" rel="stylesheet"&gt;
-				&lt;script src="build/js/script-min.js"&gt;&lt;&#47;script&gt;
+				&lt;link href="build/simple-tags.min.css" rel="stylesheet"&gt;
+				&lt;script src="build/simple-tags.min.js"&gt;&lt;&#47;script&gt;
 			</pre>
+		</div>
+
+		<div>
+			At this point, let us target the desired element and pass to <code>new Tags()</code>. 
+			In our example above, I will add a new id attribute, named <code>simple-tag</code>.
+			 
+			<pre style="tab-size: 1; white-space: pre-line;">
+				&lt;div
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;id="simple-tag"
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;class="simple-tags"
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;data-simple-tags="Article, Blog, Page, Post, Category, Updates" &gt;
+				&lt;/div&gt;
+			</pre>
+			
+			<pre style="tab-size: 1; white-space: pre-line;">
+				&lt;script src="build/simple-tags.min.js"&gt;&lt;&#47;script&gt;
+				&lt;script&gt;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; new Tags(document.getElementById("simple-tag")
+				&lt;/script&gt;
+			</pre>	
 		</div>
 		
 		<div class="uk-margin-top">
 			<h3>Result</h3>
-			<div class="simple-tags" 
+			<div id="custom-simple-tags" 
+			class="simple-tags"
 				 data-simple-tags="Article, Blog, Page, Post, Category, Updates" 
 				 style="margin: 1em 0em;">
 			</div>
-			<div class="simple-tags" 
-				 data-simple-tags='~!@#$%^&*()_+{}|:"<>?, 1234567890, abcdefg' 
-				 style="margin: 1em 0em;">
-			</div>
-			<div class="simple-tags" 
-				 data-simple-tags="Afghanistan,Albania,Algeria,Andorra,Angola,Anguilla,Antigua   Barbuda,Argentina,Armenia,Aruba,Australia,Austria,Azerbaijan,Bahamas,Bahrain,Bangladesh,Barbados,Belarus,Belgium,Belize,Benin,Bermuda,Bhutan,Bolivia,Bosnia   Herzegovina,Botswana,Brazil,British Virgin Islands,Brunei,Bulgaria,Burkina Faso,Burundi,Cambodia,Cameroon,Cape Verde,Cayman Islands,Chad,Chile,China,Colombia,Congo,Cook Islands,Costa Rica,Cote D Ivoire,Croatia,Cruise Ship,Cuba,Cyprus,Czech Republic,Denmark,Djibouti,Dominica,Dominican Republic,Ecuador,Egypt,El Salvador,Equatorial Guinea,Estonia,Ethiopia,Falkland Islands,Faroe Islands,Fiji,Finland,France,French Polynesia,French West Indies,Gabon,Gambia,Georgia,Germany,Ghana,Gibraltar,Greece,Greenland,Grenada,Guam,Guatemala,Guernsey,Guinea,Guinea Bissau,Guyana,Haiti,Honduras,Hong Kong,Hungary,Iceland,India,Indonesia,Iran,Iraq,Ireland,Isle of Man,Israel,Italy,Jamaica,Japan,Jersey,Jordan,Kazakhstan,Kenya,Kuwait,Kyrgyz Republic,Laos,Latvia,Lebanon,Lesotho,Liberia,Libya,Liechtenstein,Lithuania,Luxembourg,Macau,Macedonia,Madagascar,Malawi,Malaysia,Maldives,Mali,Malta,Mauritania,Mauritius,Mexico,Moldova,Monaco,Mongolia,Montenegro,Montserrat,Morocco,Mozambique,Namibia,Nepal,Netherlands,Netherlands Antilles,New Caledonia,New Zealand,Nicaragua,Niger,Nigeria,Norway,Oman,Pakistan,Palestine,Panama,Papua New Guinea,Paraguay,Peru,Philippines,Poland,Portugal,Puerto Rico,Qatar,Reunion,Romania,Russia,Rwanda,Saint Pierre   Miquelon,Samoa,San Marino,Satellite,Saudi Arabia,Senegal,Serbia,Seychelles,Sierra Leone,Singapore,Slovakia,Slovenia,South Africa,South Korea,Spain,Sri Lanka,St Kitts   Nevis,St Lucia,St Vincent,St. Lucia,Sudan,Suriname,Swaziland,Sweden,Switzerland,Syria,Taiwan,Tajikistan,Tanzania,Thailand,Timor L'Este,Togo,Tonga,Trinidad   Tobago,Tunisia,Turkey,Turkmenistan,Turks   Caicos,Uganda,Ukraine,United Arab Emirates,United Kingdom,Uruguay,Uzbekistan,Venezuela,Vietnam,Virgin Islands (US),Yemen,Zambia,Zimbabwe" 
-				 style="margin: 1em 0em;">
-			</div>
-			
 		</div>
 		
 		<div class="uk-height-medium"></div>
 	</div>
 
-	
-	
-<!-- 	<script src="js/script-min.js"></script> -->
-	<script src="js/script.js"></script>
-	<script>
-// 		new Tags('#container', ["Article", "Blog", "Page", "Post", "Category", "Updates"] )
-	</script>
+	<script src="simple-tags.min.js"></script>
 	
 	<!-- UIkit JS -->
 	<script src="https://cdn.jsdelivr.net/npm/uikit@3.2.2/dist/js/uikit.min.js"></script>

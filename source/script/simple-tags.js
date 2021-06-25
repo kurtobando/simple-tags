@@ -1,4 +1,9 @@
 function Tags(element) {
+
+    if (!element) {
+        throw new Error("DOM Element is undifined! Please choose HTML target element.")
+    }
+
     let DOMParent = element
     let DOMList
     let DOMInput
@@ -86,12 +91,4 @@ function Tags(element) {
     onKeyUp()
 }
 
-// run immediately
-;(function () {
-    let DOMSimpleTags = document.querySelectorAll(".simple-tags")
-    DOMSimpleTags = Array.from(DOMSimpleTags)
-    DOMSimpleTags.forEach(function (currentValue) {
-        // create Tags
-        new Tags(currentValue)
-    })
-})()
+module.exports = Tags
