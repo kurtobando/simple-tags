@@ -1,4 +1,9 @@
 function Tags(element) {
+
+    if (!element) {
+        throw new Error("DOM Element is undifined! Please choose HTML target element.")
+    }
+
     let DOMParent = element
     let DOMList
     let DOMInput
